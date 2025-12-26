@@ -49,7 +49,7 @@ function App() {
     }
     const element = document.getElementById(targetId);
     if (element) {
-      const headerOffset = 100;
+      const headerOffset = 140;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -77,34 +77,34 @@ function App() {
         case 1:
             return {
                 question: "Você já usa o WhatsApp no seu celular?",
-                explanation: "O WhatsApp é aquele aplicativo verde que usamos para mandar mensagens para a família e amigos.",
-                alternative: "É um programa no celular para conversar por escrito ou por voz com quem você gosta.",
-                mainLabel: "👍 SIM, JÁ USO",
-                secLabel: "🤔 AINDA NÃO USO"
+                visualDescription: "Interface simplificada com foco em mensagens e campo de texto.",
+                instruction: "Toque na barra inferior para escrever sua mensagem.",
+                mainLabel: "SIM, JÁ USO",
+                secLabel: "AINDA NÃO USO"
             };
         case 2:
             return {
-                question: "Você sabe como enviar um áudio?",
-                explanation: "Áudios são mensagens de voz, como se fosse uma ligação, mas que a pessoa ouve depois.",
-                alternative: "Sabe aquele microfonezinho que a gente aperta para falar sem precisar escrever? É isso!",
-                mainLabel: "👍 SIM, EU SEI",
-                secLabel: "🖐️ QUERO APRENDER"
+                question: "Sabe como enviar um áudio?",
+                visualDescription: "Ícone de microfone destacado para gravação de voz.",
+                instruction: "Mantenha pressionado o ícone para gravar sua voz.",
+                mainLabel: "SIM, EU SEI",
+                secLabel: "QUERO APRENDER"
             };
         case 3:
             return {
-                question: "Já te pediram para mandar sua localização?",
-                explanation: "A localização serve para mostrar onde você está no mapa, para alguém te encontrar mais fácil.",
-                alternative: "É como se você mostrasse no mapa da cidade exatamente onde a sua casa ou você está agora.",
-                mainLabel: "👍 JÁ SEI MANDAR",
-                secLabel: "🖐️ O QUE É ISSO?"
+                question: "Sabe mandar sua localização?",
+                visualDescription: "Mapa simplificado indicando um ponto geográfico.",
+                instruction: "Toque no botão de compartilhar para enviar seu local.",
+                mainLabel: "JÁ SEI MANDAR",
+                secLabel: "O QUE É ISSO?"
             };
         default:
             return {
-                question: "Parabéns por chegar até aqui!",
-                explanation: "Muito bem. Você está indo no seu ritmo e aprendendo coisas novas todos os dias.",
-                alternative: "Você completou os primeiros passos. Estamos muito orgulhosos do seu esforço!",
-                mainLabel: "🏠 VOLTAR PARA O INÍCIO",
-                secLabel: "📚 VER TODOS OS CURSOS"
+                question: "Podemos começar agora?",
+                visualDescription: "Conclusão da jornada de demonstração.",
+                instruction: "Escolha um dos cursos abaixo para continuar aprendendo.",
+                mainLabel: "VOLTAR AO INÍCIO",
+                secLabel: "VER CURSOS"
             };
     }
   };
@@ -112,7 +112,7 @@ function App() {
   const tutorialContent = view.type === 'tutorial' ? getTutorialContent(view.step) : null;
 
   return (
-    <div className={`min-h-screen font-sans selection:bg-green-200 selection:text-black ${highContrast ? 'bg-black text-yellow-300' : 'bg-tech-pattern text-[#1E293B]'}`}>
+    <div className={`min-h-screen font-sans selection:bg-emerald-100 selection:text-emerald-900 ${highContrast ? 'bg-black text-yellow-300' : 'bg-white text-slate-900'}`}>
       
       {view.type !== 'tutorial' && (
         <Navbar 
@@ -131,8 +131,8 @@ function App() {
                 onCtaClick={() => scrollToSection('courses')} 
                 onSecondaryCtaClick={() => setView({ type: 'tutorial', step: 1 })}
             />
-            <FreeGuide />
             <Features />
+            <FreeGuide />
             <PremiumService />
             <ProductGrid onProductClick={(c) => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -163,8 +163,8 @@ function App() {
             currentStep={view.step}
             totalSteps={4}
             question={tutorialContent.question}
-            explanation={tutorialContent.explanation}
-            alternativeExplanation={tutorialContent.alternative}
+            visualDescription={tutorialContent.visualDescription}
+            instruction={tutorialContent.instruction}
             mainActionLabel={tutorialContent.mainLabel}
             secondaryActionLabel={tutorialContent.secLabel}
             onMainAction={() => {
@@ -179,7 +179,7 @@ function App() {
                     setView({ type: 'tutorial', step: view.step + 1 });
                 }
             }}
-            onHelp={() => alert('Um de nossos professores humanos entrará em contato em breve para te ajudar.')}
+            onHelp={() => alert('Um de nossos professores humanos entrará em contato em breve.')}
             onRepeat={() => {}}
             onBack={() => {
               if (view.step === 1) setView({ type: 'home' });

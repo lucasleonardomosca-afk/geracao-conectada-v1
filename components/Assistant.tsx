@@ -31,7 +31,7 @@ const Assistant: React.FC = () => {
     setMessages(prev => [...prev, userMsg]);
     setInputValue('');
 
-    if (trimmedInput.length < 20) {
+    if (trimmedInput.length < 15) {
       const staticMsg: ChatMessage = { 
         role: 'model', 
         text: 'Por favor, escreva um pouco mais de detalhes para eu conseguir te ajudar melhor.', 
@@ -62,27 +62,30 @@ const Assistant: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[60] flex flex-col items-end">
+    <div className="fixed bottom-12 right-12 z-[60] flex flex-col items-end no-print">
       {isOpen && (
-        <div className="bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] w-[90vw] sm:w-[450px] h-[600px] mb-6 flex flex-col overflow-hidden border-4 border-emerald-600">
-          <div className="bg-emerald-600 p-6 flex justify-between items-center text-white">
-            <span className="font-black text-2xl">Ajudante Digital</span>
+        <div className="bg-white rounded-[40px] shadow-[0_30px_100px_rgba(0,0,0,0.15)] w-[90vw] sm:w-[480px] h-[650px] mb-8 flex flex-col overflow-hidden border border-slate-100 animate-fade-in-up">
+          <div className="bg-slate-900 p-8 flex justify-between items-center text-white">
+            <div className="flex items-center gap-4">
+               <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-xl">💬</div>
+               <span className="font-black text-2xl tracking-tight">Ajudante Digital</span>
+            </div>
             <button 
               onClick={() => setIsOpen(false)} 
-              className="bg-white text-emerald-800 font-bold px-4 py-2 rounded-xl text-lg active:scale-90"
+              className="text-white/50 hover:text-white font-bold text-sm uppercase tracking-widest transition-colors"
             >
-              SAIR
+              Fechar
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50" ref={scrollRef}>
+          <div className="flex-1 overflow-y-auto p-8 space-y-8 bg-slate-50" ref={scrollRef}>
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div 
-                  className={`max-w-[90%] p-5 rounded-2xl text-xl font-medium shadow-sm leading-relaxed ${
+                  className={`max-w-[85%] p-6 rounded-[24px] text-xl font-medium leading-relaxed shadow-sm ${
                     msg.role === 'user' 
-                      ? 'bg-emerald-100 text-emerald-900 border-2 border-emerald-200' 
-                      : 'bg-white border-2 border-slate-200 text-slate-900'
+                      ? 'bg-emerald-600 text-white rounded-br-none' 
+                      : 'bg-white border border-slate-100 text-slate-900 rounded-bl-none'
                   }`}
                 >
                   {msg.text}
@@ -91,29 +94,29 @@ const Assistant: React.FC = () => {
             ))}
             {isThinking && (
                <div className="flex justify-start">
-                 <div className="bg-white border-2 border-slate-200 p-5 rounded-2xl italic text-slate-500 text-xl font-bold">
-                   Pensando na explicação...
+                 <div className="bg-white border border-slate-100 p-6 rounded-[24px] rounded-bl-none italic text-slate-400 text-xl font-medium animate-pulse">
+                   Preparando explicação simples...
                  </div>
                </div>
             )}
           </div>
 
-          <div className="p-6 bg-white border-t-4 border-slate-100">
-            <div className="flex flex-col gap-4">
+          <div className="p-8 bg-white border-t border-slate-100">
+            <div className="flex flex-col gap-6">
               <input 
                 type="text" 
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Escreva sua pergunta aqui..." 
-                className="w-full bg-slate-100 border-4 border-slate-200 rounded-2xl px-6 py-4 text-xl outline-none focus:border-emerald-500 font-medium"
+                placeholder="Qual sua dúvida hoje?" 
+                className="w-full bg-slate-100 border border-slate-100 rounded-2xl px-8 py-5 text-xl outline-none focus:bg-white focus:border-slate-900 transition-all font-medium"
               />
               <button 
                 onClick={handleSend}
                 disabled={!inputValue.trim() || isThinking}
-                className="h-[64px] w-full bg-emerald-600 text-white font-black text-2xl rounded-2xl shadow-lg hover:bg-emerald-700 disabled:opacity-50 flex items-center justify-center gap-3"
+                className="h-[72px] w-full bg-slate-900 text-white font-bold text-xl rounded-2xl shadow-xl hover:bg-black disabled:opacity-30 transition-all flex items-center justify-center gap-3"
               >
-                🚀 Enviar minha dúvida
+                Enviar pergunta
               </button>
             </div>
           </div>
@@ -122,11 +125,11 @@ const Assistant: React.FC = () => {
 
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-emerald-600 text-white flex items-center gap-4 px-8 py-6 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all border-4 border-white"
+        className="bg-emerald-700 text-white flex items-center gap-6 px-10 py-6 rounded-full shadow-[0_20px_50px_rgba(4,120,87,0.3)] hover:bg-emerald-800 active:scale-95 transition-all border-4 border-white"
       >
-        <span className="text-2xl font-black">{isOpen ? 'SAIR DA AJUDA' : 'PRECISA DE AJUDA?'}</span>
-        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            <span className="text-emerald-700 text-2xl font-black">?</span>
+        <span className="text-xl font-black uppercase tracking-widest">{isOpen ? 'Fechar ajuda' : 'Precisa de ajuda?'}</span>
+        <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+            <span className="text-white text-2xl font-black">?</span>
         </div>
       </button>
     </div>

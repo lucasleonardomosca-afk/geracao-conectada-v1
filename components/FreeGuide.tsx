@@ -8,52 +8,54 @@ import React from 'react';
 
 const FreeGuide: React.FC = () => {
   return (
-    <section id="free-guide" className="py-20 bg-blue-50 border-t border-blue-100 no-print">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-        <div className="md:w-1/2">
-           <div className="inline-block bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-bold mb-4 border border-blue-200 uppercase tracking-widest">
-               É DE GRAÇA
-           </div>
-           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-               Livrinho do Celular: Guia Fácil para você
+    <section id="free-guide" className="py-48 bg-slate-50 no-print">
+      <div className="max-w-7xl mx-auto px-8 flex flex-col lg:flex-row items-start gap-32">
+        <div className="lg:w-1/2">
+           <span className="text-xs font-black text-slate-300 uppercase tracking-[0.35em] mb-12 block">Apoio Didático Gratuito</span>
+           <h2 className="text-7xl font-black text-slate-900 mb-12 leading-[1.1] tracking-tight">
+               O Livrinho <br/> do Celular.
            </h2>
-           <p className="text-xl text-slate-700 mb-8">
-               Baixe agora nosso livrinho para aprender os primeiros passos no celular, dicas para não cair em golpes e as palavras difíceis da internet explicadas. Tudo com letra grande!
+           <p className="text-2xl text-slate-500 mb-16 font-medium leading-relaxed max-w-xl">
+               Um manual impresso com letras grandes para você consultar sempre que tiver dúvida. Enviamos direto no seu WhatsApp ou E-mail.
            </p>
-           <ul className="space-y-4 mb-8">
-               <li className="flex items-center gap-3 text-lg font-medium text-slate-800">
-                   <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
-                   Como aumentar a letra do celular
-               </li>
-               <li className="flex items-center gap-3 text-lg font-medium text-slate-800">
-                   <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
-                   Dicas para não ser enganado
-               </li>
-               <li className="flex items-center gap-3 text-lg font-medium text-slate-800">
-                   <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
-                   Dicionário de palavras da internet
-               </li>
-           </ul>
+           <div className="space-y-8">
+               {[
+                 { label: 'Letras grandes e fáceis', emoji: '🔍' },
+                 { label: 'Dicas contra golpes', emoji: '🛡️' },
+                 { label: 'Dicionário de termos', emoji: '📖' }
+               ].map((item, i) => (
+                 <div key={i} className="flex items-center gap-6 text-2xl font-bold text-slate-800">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-2xl shadow-sm">{item.emoji}</div>
+                    {item.label}
+                 </div>
+               ))}
+           </div>
         </div>
         
-        <div className="md:w-1/2 bg-white p-8 rounded-2xl shadow-xl border-2 border-blue-100 w-full">
-            <h3 className="text-2xl font-bold text-center mb-6 text-slate-900">Receba no e-mail ou WhatsApp</h3>
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Livrinho enviado! Veja seu e-mail ou celular.'); }}>
-                <div>
-                    <label className="block text-slate-700 font-bold mb-2">Seu Nome</label>
-                    <input type="text" className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3 text-lg focus:border-blue-500 outline-none" placeholder="Digite seu nome completo" />
+        <div className="lg:w-1/2 bg-white p-16 rounded-[64px] border border-slate-100 w-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)]">
+            <h3 className="text-4xl font-black mb-12 text-slate-900 tracking-tight">Receber agora</h3>
+            <form className="space-y-10" onSubmit={(e) => { e.preventDefault(); alert('Enviado com sucesso!'); }}>
+                <div className="space-y-4">
+                    <label className="block text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">Seu Nome Completo</label>
+                    <input 
+                      type="text" 
+                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-8 py-6 text-xl focus:bg-white focus:border-slate-900 outline-none transition-all font-medium" 
+                      placeholder="Ex: Maria de Oliveira" 
+                    />
                 </div>
-                <div>
-                    <label className="block text-slate-700 font-bold mb-2">Seu E-mail ou Celular</label>
-                    <input type="text" className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3 text-lg focus:border-blue-500 outline-none" placeholder="Ex: maria@email.com" />
+                <div className="space-y-4">
+                    <label className="block text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">E-mail ou WhatsApp</label>
+                    <input 
+                      type="text" 
+                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-8 py-6 text-xl focus:bg-white focus:border-slate-900 outline-none transition-all font-medium" 
+                      placeholder="maria@email.com" 
+                    />
                 </div>
-                <button type="submit" className="h-[64px] w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl rounded-2xl shadow-md transition-colors flex items-center justify-center gap-3">
-                    📩 Quero receber o livrinho
+                <button type="submit" className="h-[96px] w-full bg-slate-900 text-white font-bold text-2xl rounded-2xl hover:bg-black transition-all shadow-xl active:scale-[0.98]">
+                    Enviar para o meu celular
                 </button>
-                <p className="text-center text-sm text-slate-500 mt-4">
-                    Não mandamos propaganda chata. Seus dados estão bem guardados.
-                </p>
             </form>
+            <p className="mt-8 text-center text-slate-300 font-medium">Não mandamos propaganda chata. Seus dados estão bem guardados.</p>
         </div>
       </div>
     </section>

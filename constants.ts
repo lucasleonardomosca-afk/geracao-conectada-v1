@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -14,7 +13,7 @@ export const COURSES: Course[] = [
     description: 'Aprenda a enviar áudios, fotos, fazer chamadas de vídeo e, o mais importante: como identificar golpes e usar o aplicativo com segurança total.',
     level: 'Iniciante',
     duration: '2 semanas',
-    imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=800&q=80',
     modules: ['Ajustando a foto de perfil', 'Enviando áudios e vídeos', 'Limpando a memória do celular', 'Bloqueando números desconhecidos', 'Chamadas de vídeo em grupo']
   },
   {
@@ -91,7 +90,7 @@ export const PLAYLIST_ITEMS: PlaylistItem[] = [
         title: "Músicas de Antigamente",
         subtitle: "Para relaxar enquanto você aprende",
         type: "Música",
-        image: "https://images.unsplash.com/photo-1459749411177-0473ef71607b?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=800&q=80",
         link: "#"
     }
 ];
