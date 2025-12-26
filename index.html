@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Geração Conectada - Tecnologia Sem Complicação</title>
+    <meta name="description" content="Aprenda a usar seu celular e tablet passo a passo. Cursos fáceis para idosos e suporte paciente." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+      
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 140px;
+        font-size: 20px; 
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #FFFFFF; 
+        color: #0F172A;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      .bg-tech-pattern {
+        background-color: #FFFFFF;
+        background-image: radial-gradient(#e2e8f0 2px, transparent 2px);
+        background-size: 40px 40px;
+      }
+
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      /* Botões e Interações 60+ */
+      button, a {
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+
+      @media print {
+        .no-print { display: none !important; }
+        body { background: white !important; color: black !important; font-size: 14pt !important; }
+        nav, footer, .fixed, button:not(.print-visible) { display: none !important; }
+      }
+
+      /* Foco em Acessibilidade Prática */
+      :focus {
+        outline: 4px solid #047857;
+        outline-offset: 4px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
