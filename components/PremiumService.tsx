@@ -49,7 +49,7 @@ const PremiumService: React.FC = () => {
                 <div className="absolute inset-0 bg-green-500 rounded-3xl rotate-3 opacity-20"></div>
                 <img 
                     src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&q=80&w=800" 
-                    alt="Especialista ensinando com paciência" 
+                    alt="Imagem ilustrativa sobre suporte técnico especializado para idosos, usada para ajudar no entendimento." 
                     className="relative rounded-3xl shadow-2xl border-4 border-slate-700 z-10 w-full"
                 />
             </div>

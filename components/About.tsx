@@ -1,76 +1,54 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
 
-
 import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="bg-[#EBE7DE]">
+    <section id="about-us" className="bg-emerald-50/50">
       
-      {/* Introduction / Story */}
-      <div className="py-24 px-6 md:px-12 max-w-[1800px] mx-auto flex flex-col md:flex-row items-start gap-16 md:gap-32">
-        <div className="md:w-1/3">
-          <h2 className="text-4xl md:text-6xl font-serif text-[#2C2A26] leading-tight">
-            Born from the earth, <br/> built for the mind.
+      {/* Introdução Humana */}
+      <div className="py-24 px-6 md:px-12 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div className="md:w-1/2">
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-8">
+            Ensinar com calma é o nosso <span className="text-emerald-700">propósito.</span>
           </h2>
+          <p className="text-2xl text-slate-700 font-medium leading-relaxed mb-8">
+            A Geração Conectada nasceu da vontade de ver nossos pais e avós navegando na internet com a mesma facilidade que nós.
+          </p>
+          <p className="text-xl text-slate-600 leading-relaxed">
+            Sabemos que a tecnologia corre rápido, mas o aprendizado precisa de tempo. Por isso, criamos um método que respeita o seu ritmo, com letras grandes, vídeos claros e paciência infinita.
+          </p>
         </div>
-        <div className="md:w-2/3 max-w-2xl">
-          <p className="text-lg md:text-xl text-[#5D5A53] font-light leading-relaxed mb-8">
-            Aura was founded on a simple but radical premise: technology should not feel like technology. It should feel like a stone smoothed by a river, or a page turned in a book.
-          </p>
-          <p className="text-lg md:text-xl text-[#5D5A53] font-light leading-relaxed mb-8">
-            In an age of infinite distraction, we design objects that respect your silence. We use materials that age gracefully—sandstone, untreated aluminum, and organic cotton—creating a tactile bridge between the digital world and your physical home.
-          </p>
+        <div className="md:w-1/2">
           <img 
-            src="https://images.pexels.com/photos/6583355/pexels-photo-6583355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-            alt="Aura Design Studio" 
-            className="w-full h-[400px] object-cover grayscale contrast-[0.9] brightness-110 mt-12"
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1000" 
+            alt="Imagem ilustrativa sobre o aprendizado digital entre gerações, usada para ajudar no entendimento." 
+            className="w-full rounded-[40px] shadow-2xl border-8 border-white object-cover h-[500px]"
           />
-          <p className="text-sm font-medium uppercase tracking-widest text-[#A8A29E] mt-4">
-            The Aura Studio, Kyoto
-          </p>
         </div>
       </div>
 
-      {/* Philosophy Blocks (Formerly Features) */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-        <div className="order-2 lg:order-1 relative h-[500px] lg:h-auto overflow-hidden group">
+      {/* Pilares da Geração Conectada */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[60vh]">
+        <div className="relative h-[400px] lg:h-auto overflow-hidden group">
            <img 
-             src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1200" 
-             alt="Natural Stone Texture" 
-             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+             src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&q=80&w=1200" 
+             alt="Imagem ilustrativa sobre o uso seguro do celular por mãos idosas, usada para ajudar no entendimento." 
+             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
            />
         </div>
-        <div className="order-1 lg:order-2 flex flex-col justify-center p-12 lg:p-24 bg-[#D6D1C7]">
-           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#5D5A53] mb-6">Materiality</span>
-           <h3 className="text-4xl md:text-5xl font-serif mb-8 text-[#2C2A26] leading-tight">
-             Materials that age <br/> with grace.
+        <div className="flex flex-col justify-center p-12 lg:p-24 bg-emerald-700 text-white">
+           <span className="text-lg font-bold uppercase tracking-[0.2em] text-emerald-200 mb-6">Segurança em Primeiro Lugar</span>
+           <h3 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
+             Navegue sem medo <br/> de cair em golpes.
            </h3>
-           <p className="text-lg text-[#5D5A53] font-light leading-relaxed mb-12 max-w-md">
-             We reject the disposable. Every Aura product is crafted from sandstone, unpolished aluminum, and organic fabrics that develop a unique patina over time, telling the story of your use.
+           <p className="text-xl font-medium leading-relaxed mb-12 max-w-md opacity-90">
+             Não ensinamos apenas a clicar. Ensinamos a desconfiar do que é falso e a proteger seu dinheiro e seus dados.
            </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-        <div className="flex flex-col justify-center p-12 lg:p-24 bg-[#2C2A26] text-[#F5F2EB]">
-           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#A8A29E] mb-6">The Ecosystem</span>
-           <h3 className="text-4xl md:text-5xl font-serif mb-8 text-[#F5F2EB] leading-tight">
-             Silence by default.
-           </h3>
-           <p className="text-lg text-[#A8A29E] font-light leading-relaxed mb-12 max-w-md">
-             Our devices respect your attention. No blinking lights, no intrusive notifications. Just calm utility when you need it, and a beautiful object when you don't.
-           </p>
-        </div>
-        <div className="relative h-[500px] lg:h-auto overflow-hidden group">
-           <img 
-             src="https://images.pexels.com/photos/6801917/pexels-photo-6801917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-             alt="Woman sitting on wooden floor reading" 
-             className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 brightness-90"
-           />
         </div>
       </div>
     </section>

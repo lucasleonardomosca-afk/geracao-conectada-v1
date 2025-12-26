@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -30,18 +31,19 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
 
       {/* Drawer */}
       <div 
-        className={`fixed inset-y-0 right-0 w-full md:w-[450px] bg-[#F5F2EB] z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out border-l border-[#D6D1C7] flex flex-col ${
+        className={`fixed inset-y-0 right-0 w-full md:w-[450px] bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out border-l-4 border-emerald-100 flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-[#D6D1C7]">
-          <h2 className="text-xl font-serif text-[#2C2A26]">Your Cart ({items.length})</h2>
+        <div className="flex items-center justify-between p-6 border-b-4 border-slate-50">
+          <h2 className="text-2xl font-black text-slate-900">Seu Carrinho ({items.length})</h2>
           <button 
             onClick={onClose} 
-            className="text-[#A8A29E] hover:text-[#2C2A26] transition-colors"
+            className="text-slate-400 hover:text-red-500 transition-colors"
+            aria-label="Fechar carrinho"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-8 h-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -50,31 +52,33 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
         {/* Items List */}
         <div className="flex-1 overflow-y-auto p-6 space-y-8">
           {items.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-60">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-12 h-12 text-[#A8A29E]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-              <p className="font-light text-[#5D5A53]">Your cart is empty.</p>
+            <div className="h-full flex flex-col items-center justify-center text-center space-y-6">
+              <div className="text-6xl opacity-20">🛒</div>
+              <p className="font-bold text-2xl text-slate-400 italic">O carrinho está vazio.</p>
             </div>
           ) : (
             items.map((item, idx) => (
-              <div key={`${item.id}-${idx}`} className="flex gap-4 animate-fade-in-up">
-                <div className="w-20 h-24 bg-[#EBE7DE] flex-shrink-0">
-                  <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
+              <div key={`${item.id}-${idx}`} className="flex gap-6 animate-fade-in-up border-b-2 border-slate-50 pb-6">
+                <div className="w-24 h-24 bg-slate-100 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-slate-200">
+                  <img 
+                    src={item.imageUrl} 
+                    alt={`Imagem ilustrativa sobre o item ${item.name}, usada para ajudar no entendimento.`} 
+                    className="w-full h-full object-cover" 
+                  />
                 </div>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex justify-between items-start">
-                        <h3 className="font-serif text-[#2C2A26]">{item.name}</h3>
-                        <span className="text-sm font-light text-[#2C2A26]">${item.price}</span>
+                        <h3 className="text-xl font-black text-slate-900">{item.name}</h3>
+                        <span className="text-xl font-bold text-emerald-700">R$ {item.price}</span>
                     </div>
-                    <p className="text-xs text-[#A8A29E] uppercase tracking-widest mt-1">{item.category}</p>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">{item.category}</p>
                   </div>
                   <button 
                     onClick={() => onRemoveItem(idx)}
-                    className="text-xs text-[#A8A29E] hover:text-[#2C2A26] self-start underline underline-offset-4 transition-colors"
+                    className="text-lg font-black text-red-500 hover:text-red-700 self-start underline underline-offset-4 transition-colors"
                   >
-                    Remove
+                    Remover
                   </button>
                 </div>
               </div>
@@ -83,18 +87,17 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, items, onRemov
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-[#D6D1C7] bg-[#EBE7DE]/30">
+        <div className="p-8 border-t-4 border-slate-50 bg-slate-50">
           <div className="flex justify-between items-center mb-6">
-            <span className="text-sm font-medium uppercase tracking-widest text-[#5D5A53]">Subtotal</span>
-            <span className="text-xl font-serif text-[#2C2A26]">${total}</span>
+            <span className="text-xl font-bold uppercase tracking-widest text-slate-500">Total</span>
+            <span className="text-3xl font-black text-slate-900">R$ {total}</span>
           </div>
-          <p className="text-xs text-[#A8A29E] mb-6 text-center">Shipping and taxes calculated at checkout.</p>
           <button 
             onClick={onCheckout}
             disabled={items.length === 0}
-            className="w-full py-4 bg-[#2C2A26] text-[#F5F2EB] uppercase tracking-widest text-sm font-medium hover:bg-[#433E38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full h-[72px] bg-emerald-700 text-white uppercase tracking-widest text-xl font-black rounded-2xl shadow-lg hover:bg-emerald-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Checkout
+            FINALIZAR CURSO
           </button>
         </div>
       </div>

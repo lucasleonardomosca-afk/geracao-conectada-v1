@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ course, onClick }) => {
       <div className="relative w-full aspect-[4/3] overflow-hidden border-b-4 border-slate-100">
         <img 
           src={course.imageUrl} 
-          alt={course.name} 
+          alt={`Imagem ilustrativa sobre o curso ${course.name}, usada para ajudar no entendimento.`} 
           className="w-full h-full object-cover transition-transform group-hover:scale-105"
         />
         <div className="absolute top-6 left-6">

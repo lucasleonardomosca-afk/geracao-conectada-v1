@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -36,7 +37,7 @@ const Journal: React.FC = () => {
                         <div className="w-full aspect-square overflow-hidden mb-6 rounded-xl relative shadow-md">
                             <img 
                                 src={item.image} 
-                                alt={item.title} 
+                                alt={`Imagem ilustrativa sobre o conteúdo ${item.title}, usada para ajudar no entendimento.`} 
                                 className="w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">

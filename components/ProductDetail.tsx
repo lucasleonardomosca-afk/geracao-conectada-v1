@@ -35,7 +35,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ course, onBack }) => {
                 <div className="h-64 md:h-auto bg-slate-200">
                      <img 
                         src={course.imageUrl} 
-                        alt={course.name} 
+                        alt={`Imagem ilustrativa sobre o curso ${course.name}, usada para ajudar no entendimento.`}
                         className="w-full h-full object-cover"
                     />
                 </div>

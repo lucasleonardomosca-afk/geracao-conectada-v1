@@ -27,15 +27,15 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick, onSecondaryCtaClick }) => {
           <div className="flex flex-col gap-6 w-full">
             <button 
               onClick={onCtaClick}
-              className="h-[64px] w-full bg-emerald-600 text-white text-2xl font-black rounded-2xl shadow-xl hover:bg-emerald-700 active:translate-y-1 transition-all flex items-center justify-center gap-3"
+              className="h-[80px] w-full bg-emerald-700 text-white text-2xl font-black rounded-2xl shadow-xl hover:bg-emerald-800 active:translate-y-1 transition-all flex items-center justify-center gap-3"
             >
               📚 Quero ver os cursos
             </button>
             <button 
               onClick={onSecondaryCtaClick}
-              className="h-[64px] w-full bg-white border-4 border-emerald-600 text-emerald-800 text-2xl font-black rounded-2xl hover:bg-emerald-50 transition-all shadow-lg flex items-center justify-center gap-3"
+              className="h-[64px] w-full bg-white border-4 border-emerald-700 text-emerald-800 text-2xl font-black rounded-2xl hover:bg-emerald-50 transition-all shadow-lg flex items-center justify-center gap-3"
             >
-               📖 Ver guia grátis em PDF
+               📖 Guia grátis em PDF
             </button>
           </div>
         </div>
@@ -43,10 +43,10 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick, onSecondaryCtaClick }) => {
         <div className="md:w-1/2 relative">
             <img 
                 src="https://images.unsplash.com/photo-1616059639535-6497f14b62d3?auto=format&fit=crop&q=80&w=1000" 
-                alt="Pessoa sorrindo usando celular" 
-                className="w-full rounded-[40px] shadow-2xl border-8 border-white object-cover"
+                alt="Imagem ilustrativa sobre uma pessoa idosa usando o celular com tranquilidade, usada para ajudar no entendimento." 
+                className="w-full rounded-[40px] shadow-2xl border-8 border-white object-cover h-[500px]"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-3xl shadow-2xl border-2 border-emerald-100 max-w-sm">
+            <div className="absolute -bottom-6 -left-6 bg-white p-8 rounded-3xl shadow-2xl border-4 border-emerald-100 max-w-sm">
                 <p className="text-xl font-bold text-emerald-900 leading-snug">
                   "Finalmente alguém que explica devagar e sem termos difíceis!"
                 </p>
