@@ -78,7 +78,7 @@ function App() {
             return {
                 question: "Vamos falar com a família?",
                 visualDescription: "Esta é a tela de conversa do seu celular.",
-                instruction: "Toque na barra branca lá embaixo para escrever.",
+                instruction: "Tudo bem, vamos com calma.",
                 mainLabel: "QUERO COMEÇAR",
                 secLabel: "TENHO DÚVIDA"
             };
@@ -101,8 +101,8 @@ function App() {
         default:
             return {
                 question: "Gostou da aula grátis?",
-                visualDescription: "Parabéns por chegar até aqui!",
-                instruction: "Escolha um curso abaixo para aprender mais coisas.",
+                visualDescription: "Parabéns! Você está indo muito bem.",
+                instruction: "Escolha um curso para aprender mais.",
                 mainLabel: "IR PARA O INÍCIO",
                 secLabel: "VER CURSOS"
             };
@@ -179,7 +179,7 @@ function App() {
                     setView({ type: 'tutorial', step: view.step + 1 });
                 }
             }}
-            onHelp={() => alert('Um de nossos professores humanos entrará em contato em breve.')}
+            onHelp={() => alert('Um professor já está vindo te ajudar. Fique tranquilo.')}
             onRepeat={() => {}}
             onBack={() => {
               if (view.step === 1) setView({ type: 'home' });

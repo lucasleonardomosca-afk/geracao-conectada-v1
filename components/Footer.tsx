@@ -12,97 +12,91 @@ interface FooterProps {
 }
 
 const LogoSymbolFooter = () => (
-  <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Smartphone */}
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-4">
     <rect x="30" y="24" width="20" height="32" rx="8" fill="#0F172A" />
-    {/* Arco de Apoio */}
     <path 
       d="M42 56 C14 56 10 32 10 20 C10 10 20 6 30 6" 
       stroke="#059669" 
       strokeWidth="8" 
       strokeLinecap="round" 
     />
-    {/* Silhueta Humana */}
     <circle cx="32" cy="6" r="6" fill="#0F172A" />
   </svg>
 );
 
-const SocialButton = ({ name, iconPath }: { name: string; iconPath: string }) => (
-  <button className="flex flex-col items-center gap-4 group">
-    {/* Container Seguro - Verde Alento de fundo conforme regra */}
+const SocialButton = ({ label, iconPath }: { label: string; iconPath: string }) => (
+  <button className="flex flex-col items-center gap-4 group w-32">
+    {/* Container de toque amplo (96px+) e cor Verde Alento */}
     <div 
-      className={`w-24 h-24 rounded-[32px] bg-[#ECFDF5] flex items-center justify-center shadow-md transition-all group-hover:scale-105 group-hover:bg-[#D1FAE5] active:scale-95 text-[#059669] border border-[#D1FAE5]`}
+      className={`w-28 h-28 rounded-[36px] bg-[#ECFDF5] flex items-center justify-center shadow-md transition-all group-hover:scale-105 group-hover:bg-[#D1FAE5] active:scale-95 text-[#059669] border-2 border-[#D1FAE5]`}
     >
-      <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+      <svg className="w-14 h-14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
         <path d={iconPath} />
       </svg>
     </div>
-    <span className="text-sm font-black text-[#0F172A] uppercase tracking-widest">{name}</span>
+    <span className="text-[10px] font-black text-[#0F172A] uppercase tracking-[0.2em] text-center h-8 flex items-center justify-center">{label}</span>
   </button>
 );
 
 const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
-  const icons = {
-    whatsapp: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z",
-    facebook: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
-    instagram: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.28.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+  const paths = {
+    whatsapp: "M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-7.6 8.38 8.38 0 0 1 3.8.9L21 7.5z",
+    facebook: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z",
+    instagram: "M17 2H7C4.24 2 2 4.24 2 7V17C2 19.76 4.24 22 7 22H17C19.76 22 22 19.76 22 17V7C22 4.24 19.76 2 17 2ZM12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7ZM17.5 6C17.78 6 18 6.22 18 6.5C18 6.78 17.78 7 17.5 7C17.22 7 17 6.78 17 6.5C17 6.22 17.22 6 17.5 6Z",
+    tiktok: "M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
   };
 
   return (
-    <footer className="bg-white pt-40 pb-20 px-8 border-t-[12px] border-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-24">
+    <footer className="bg-white pt-32 pb-16 px-8 border-t-[12px] border-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
         
         <div className="md:col-span-2">
-          <div className="flex items-center gap-6 mb-12 group">
+          {/* Logo Vertical Conforme Guia de Marca */}
+          <div className="flex flex-col items-start mb-10 group">
             <LogoSymbolFooter />
             <div className="flex flex-col">
-                <h4 className="text-3xl font-[900] text-[#0F172A] uppercase tracking-tighter leading-none font-inter">{BRAND_NAME}</h4>
-                <span className="text-[11px] font-[800] text-[#059669] uppercase tracking-[0.4em] mt-1">Símbolo de Autonomia</span>
+                <h4 className="text-4xl font-[900] text-[#0F172A] uppercase tracking-tighter leading-none font-inter">{BRAND_NAME}</h4>
+                <span className="text-[11px] font-[800] text-[#059669] uppercase tracking-[0.4em] mt-1">ENSINO COM PACIÊNCIA</span>
             </div>
           </div>
-          <p className="text-2xl text-slate-500 mb-16 font-medium leading-relaxed max-w-sm">
+          <p className="text-xl text-slate-500 mb-12 font-medium leading-relaxed max-w-sm">
             Toda a calma do mundo para você aprender a usar a tecnologia do seu jeito, com total segurança.
           </p>
           
-          <div className="flex flex-col gap-10">
-             <span className="text-xs font-black text-slate-400 uppercase tracking-[0.4em]">Nossas Redes Sociais</span>
-             <div className="flex flex-wrap gap-12">
-                <SocialButton name="Instagram" iconPath={icons.instagram} />
-                <SocialButton name="Facebook" iconPath={icons.facebook} />
-                <SocialButton name="WhatsApp" iconPath={icons.whatsapp} />
+          <div className="flex flex-col gap-6">
+             <span className="text-xs font-black text-slate-300 uppercase tracking-[0.4em]">Siga e fale conosco</span>
+             <div className="flex flex-wrap gap-8">
+                <SocialButton label="Falar com ajuda" iconPath={paths.whatsapp} />
+                <SocialButton label="Ver dicas" iconPath={paths.instagram} />
+                <SocialButton label="Comunidade" iconPath={paths.facebook} />
+                <SocialButton label="Vídeos curtos" iconPath={paths.tiktok} />
              </div>
           </div>
         </div>
 
         <div>
-          <h4 className="font-black text-slate-300 mb-12 text-xs uppercase tracking-[0.4em]">Explorar</h4>
-          <ul className="space-y-10 text-[#0F172A] text-2xl font-black">
-            <li><a href="#about" onClick={(e) => onLinkClick(e, 'about')} className="hover:text-[#059669] transition-colors flex items-center gap-3 group">
-              <span className="group-hover:translate-x-1 transition-transform">→</span> Como funciona</a>
-            </li>
-            <li><a href="#courses" onClick={(e) => onLinkClick(e, 'courses')} className="hover:text-[#059669] transition-colors flex items-center gap-3 group">
-              <span className="group-hover:translate-x-1 transition-transform">→</span> Nossos Cursos</a>
-            </li>
-            <li><a href="#partners" onClick={(e) => onLinkClick(e, 'partners')} className="hover:text-[#059669] transition-colors flex items-center gap-3 group">
-              <span className="group-hover:translate-x-1 transition-transform">→</span> Área de Parceiros</a>
-            </li>
+          <h4 className="font-black text-slate-300 mb-10 text-xs uppercase tracking-[0.4em]">Explorar</h4>
+          <ul className="space-y-6 text-[#0F172A] text-xl font-black">
+            <li><a href="#about" onClick={(e) => onLinkClick(e, 'about')} className="hover:text-[#059669] transition-colors">Como funciona</a></li>
+            <li><a href="#courses" onClick={(e) => onLinkClick(e, 'courses')} className="hover:text-[#059669] transition-colors">Nossos Cursos</a></li>
+            <li><a href="#partners" onClick={(e) => onLinkClick(e, 'partners')} className="hover:text-[#059669] transition-colors">Área de Parceiros</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 className="font-black text-slate-300 mb-12 text-xs uppercase tracking-[0.4em]">Fale Conosco</h4>
-          <p className="text-xl text-[#0F172A] mb-8 font-black">contato@geracaoconectada.com</p>
-          <div className="p-10 rounded-[48px] bg-[#F8FAFC] border-2 border-slate-100 italic text-slate-400 font-bold text-xl leading-relaxed shadow-inner">
+          <h4 className="font-black text-slate-300 mb-10 text-xs uppercase tracking-[0.4em]">Fale Conosco</h4>
+          <p className="text-xl text-[#0F172A] mb-6 font-black">contato@geracaoconectada.com</p>
+          <div className="p-8 rounded-[40px] bg-[#F8FAFC] border-2 border-slate-100 italic text-slate-400 font-bold text-lg leading-relaxed shadow-inner">
             "Sempre prontos para te ouvir <br/> com toda a paciência e respeito."
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-32 pt-16 border-t-2 border-slate-100 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400 font-black">
+      <div className="max-w-7xl mx-auto mt-24 pt-12 border-t-2 border-slate-100 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 font-black">
         <p>© 2025 Geração Conectada. Feito com amor para a melhor idade.</p>
-        <div className="flex gap-12 mt-8 md:mt-0 uppercase tracking-widest">
-            <a href="#" className="hover:text-[#0F172A] transition-colors">Política de Privacidade</a>
-            <a href="#" className="hover:text-[#0F172A] transition-colors">Termos de Uso</a>
+        <div className="flex gap-8 mt-6 md:mt-0 uppercase tracking-widest">
+            <a href="#" className="hover:text-[#0F172A] transition-colors">Privacidade</a>
+            <a href="#" className="hover:text-[#0F172A] transition-colors">Termos</a>
         </div>
       </div>
     </footer>

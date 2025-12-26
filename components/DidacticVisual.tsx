@@ -29,7 +29,7 @@ const DidacticVisual: React.FC<DidacticVisualProps> = ({ type, imageSrc }) => {
     </div>
   );
 
-  // Se houver uma imagem específica de suporte visual
+  // Fallback visual com suporte a imagem real
   if (imageSrc) {
     return (
       <div className={phoneContainer}>
@@ -37,13 +37,13 @@ const DidacticVisual: React.FC<DidacticVisualProps> = ({ type, imageSrc }) => {
             <div className="w-full h-full flex flex-col">
                 <div className="h-16 bg-[#F8FAFC] border-b-2 border-slate-100"></div>
                 <div className="flex-1 bg-slate-50 flex items-center justify-center overflow-hidden">
-                    <SmartImage src={imageSrc} alt="Suporte visual didático" className="w-full h-full object-cover" />
+                    <SmartImage src={imageSrc} alt="Suporte visual didático" className="w-full h-full object-cover" icon="📱" />
                 </div>
                 <div className="h-24 bg-white border-t-2 border-slate-100 flex items-center justify-center p-4">
                     <div className="h-12 w-32 bg-slate-100 rounded-full"></div>
                 </div>
             </div>
-            <ActionIndicator top="50%" left="50%" label="Ver imagem" />
+            <ActionIndicator top="50%" left="50%" label="Aperte aqui" />
         </div>
       </div>
     );
@@ -63,10 +63,10 @@ const DidacticVisual: React.FC<DidacticVisualProps> = ({ type, imageSrc }) => {
           
           <div className="flex-1 p-8 space-y-10 bg-[#E5DDD5]">
             <div className="bg-white p-6 rounded-3xl rounded-tl-none shadow-md max-w-[90%] border-2 border-slate-50">
-               <p className="text-2xl font-black text-[#0F172A] leading-tight">Você vem para o almoço?</p>
+               <p className="text-2xl font-black text-[#0F172A] leading-tight">Oi, tudo bem?</p>
             </div>
             <div className="bg-[#DCF8C6] p-6 rounded-3xl rounded-tr-none shadow-md max-w-[90%] ml-auto border-2 border-emerald-100">
-               <p className="text-2xl font-black text-[#0F172A] leading-tight">Sim! Já estou saindo.</p>
+               <p className="text-2xl font-black text-[#0F172A] leading-tight">Tudo ótimo!</p>
             </div>
           </div>
 
