@@ -76,34 +76,34 @@ function App() {
     switch (step) {
         case 1:
             return {
-                question: "Você já usa o WhatsApp no seu celular?",
-                visualDescription: "Interface simplificada com foco em mensagens e campo de texto.",
-                instruction: "Toque na barra inferior para escrever sua mensagem.",
-                mainLabel: "SIM, JÁ USO",
-                secLabel: "AINDA NÃO USO"
+                question: "Vamos falar com a família?",
+                visualDescription: "Esta é a tela de conversa do seu celular.",
+                instruction: "Toque na barra branca lá embaixo para escrever.",
+                mainLabel: "QUERO COMEÇAR",
+                secLabel: "TENHO DÚVIDA"
             };
         case 2:
             return {
-                question: "Sabe como enviar um áudio?",
-                visualDescription: "Ícone de microfone destacado para gravação de voz.",
-                instruction: "Mantenha pressionado o ícone para gravar sua voz.",
-                mainLabel: "SIM, EU SEI",
-                secLabel: "QUERO APRENDER"
+                question: "Quer mandar sua voz?",
+                visualDescription: "O desenho mostra o botão de gravar áudio.",
+                instruction: "Segure o dedo no microfone verde.",
+                mainLabel: "JÁ SEI FAZER",
+                secLabel: "ME ENSINA"
             };
         case 3:
             return {
-                question: "Sabe mandar sua localização?",
-                visualDescription: "Mapa simplificado indicando um ponto geográfico.",
-                instruction: "Toque no botão de compartilhar para enviar seu local.",
-                mainLabel: "JÁ SEI MANDAR",
-                secLabel: "O QUE É ISSO?"
+                question: "Onde você está agora?",
+                visualDescription: "Um mapa para mostrar sua localização.",
+                instruction: "Aperte no mapa para avisar que chegou bem.",
+                mainLabel: "JÁ ENVIEI",
+                secLabel: "NÃO ENTENDI"
             };
         default:
             return {
-                question: "Podemos começar agora?",
-                visualDescription: "Conclusão da jornada de demonstração.",
-                instruction: "Escolha um dos cursos abaixo para continuar aprendendo.",
-                mainLabel: "VOLTAR AO INÍCIO",
+                question: "Gostou da aula grátis?",
+                visualDescription: "Parabéns por chegar até aqui!",
+                instruction: "Escolha um curso abaixo para aprender mais coisas.",
+                mainLabel: "IR PARA O INÍCIO",
                 secLabel: "VER CURSOS"
             };
     }

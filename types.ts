@@ -6,6 +6,8 @@
 
 import React from 'react';
 
+export type CourseAccess = 'Livre' | 'Com Professor' | 'Patrocinado';
+
 export interface Course {
   id: string;
   name: string;
@@ -15,9 +17,10 @@ export interface Course {
   duration: string;
   imageUrl: string;
   modules: string[];
+  accessType?: CourseAccess;
+  sponsorName?: string;
 }
 
-// Fixed type mismatch: added 'Rádio Digital' to the allowed union types for the 'type' property.
 export interface PlaylistItem {
   id: number;
   title: string;

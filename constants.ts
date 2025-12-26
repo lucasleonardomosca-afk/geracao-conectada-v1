@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -10,61 +11,46 @@ export const COURSES: Course[] = [
     id: 'c1',
     name: 'WhatsApp Sem Medo',
     tagline: 'Fale com a família.',
-    description: 'Aprenda a enviar áudios, fotos, fazer chamadas de vídeo e, o mais importante: como identificar golpes e usar o aplicativo com segurança total.',
+    description: 'Aprenda a enviar áudios, fotos, fazer chamadas de vídeo e identificar mensagens falsas com calma.',
     level: 'Iniciante',
     duration: '2 semanas',
-    imageUrl: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=800&q=80',
-    modules: ['Ajustando a foto de perfil', 'Enviando áudios e vídeos', 'Limpando a memória do celular', 'Bloqueando números desconhecidos', 'Chamadas de vídeo em grupo']
+    imageUrl: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=800&q=80',
+    modules: ['Ajustando a foto de perfil', 'Enviando áudios e vídeos', 'Limpando a memória', 'Bloqueando números', 'Chamadas em grupo'],
+    accessType: 'Livre'
   },
   {
     id: 'c2',
-    name: 'Banco Seguro no Celular',
+    name: 'Pix e Banco no Celular',
     tagline: 'Pague boletos sem fila.',
-    description: 'Chega de ir na lotérica. Vamos ensinar passo a passo como usar o Pix, pagar seus boletos e ver quanto dinheiro tem no seu cadastro do banco sem sair de casa.',
+    description: 'Ensinamos passo a passo como usar o Pix e pagar boletos com total segurança e paciência.',
     level: 'Intermediário',
     duration: '3 semanas',
-    imageUrl: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
-    modules: ['Colocando o aplicativo do banco no celular', 'Criando senhas fortes e anotando', 'Como fazer um Pix seguro', 'Pagando boletos pelo código de barras', 'Identificando mensagens falsas de banco']
+    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+    modules: ['Aplicativo do banco', 'Senhas fortes', 'Pix seguro', 'Código de barras', 'Mensagens falsas'],
+    accessType: 'Patrocinado',
+    sponsorName: 'Banco Amigo'
   },
   {
     id: 'c3',
     name: 'Mestre das Fotos',
     tagline: 'Guarde seus momentos.',
-    description: 'Aprenda a tirar fotos bonitas dos netos e viagens. E também como enviar para a família ou colocar no Facebook.',
+    description: 'Tire fotos bonitas dos netos e aprenda a organizar suas lembranças de forma simples.',
     level: 'Iniciante',
     duration: '1 semana',
-    imageUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
-    modules: ['Como usar a câmera da frente e de trás', 'Usando a luz da foto corretamente', 'Apagando fotos que não ficaram boas', 'Organizando suas fotos em pastas', 'Enviando várias fotos de uma vez']
+    imageUrl: 'https://images.unsplash.com/photo-1473615695634-d284ec918736?w=800&q=80',
+    modules: ['Câmera frontal e traseira', 'Luz correta', 'Apagando fotos', 'Organizando pastas', 'Enviando várias'],
+    accessType: 'Livre'
   },
   {
     id: 'c4',
-    name: 'Uber e 99 Fácil',
+    name: 'Uber com Monitoria',
     tagline: 'Vá para onde quiser.',
-    description: 'Tenha autonomia para ir ao médico ou visitar amigos sem depender de carona. Aprenda a pedir carros com segurança.',
+    description: 'Tenha autonomia para visitar amigos. Inclui suporte humano para sua primeira viagem com segurança.',
     level: 'Intermediário',
     duration: '1 semana',
-    imageUrl: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80',
-    modules: ['Baixando o aplicativo', 'Fazendo o seu cadastro e colocando o cartão', 'Conferindo a placa do carro', 'Mandando o caminho da viagem para os filhos', 'Dando nota para o motorista']
-  },
-  {
-    id: 'c5',
-    name: 'Compras Online',
-    tagline: 'Mercado e farmácia em casa.',
-    description: 'Como fazer compras de supermercado ou remédios pela internet. Aprenda a ver se o site é de confiança antes de comprar.',
-    level: 'Avançado',
-    duration: '2 semanas',
-    imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80',
-    modules: ['Vendo se o site é seguro', 'Comparando os preços', 'Vendo o valor da entrega', 'Acompanhando a chegada do seu pacote', 'Seus direitos na hora de comprar']
-  },
-  {
-    id: 'c6',
-    name: 'Memória e Jogos',
-    tagline: 'Ginástica para o cérebro.',
-    description: 'Divirta-se e exercite a mente com jogos de palavras e memória. Descubra aplicativos que ajudam a manter a cabeça ativa.',
-    level: 'Iniciante',
-    duration: 'No seu tempo',
-    imageUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
-    modules: ['Palavras Cruzadas no celular', 'Sudoku para quem está começando', 'Jogos de colorir', 'Aprendendo novas palavras', 'Exercícios para relaxar a mente']
+    imageUrl: 'https://images.unsplash.com/photo-1581579186913-45ac3e6efe93?w=800&q=80',
+    modules: ['Baixando o app', 'Cadastro e cartão', 'Conferindo a placa', 'Mandando caminho aos filhos', 'Dando nota'],
+    accessType: 'Com Professor'
   }
 ];
 
